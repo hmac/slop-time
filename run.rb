@@ -15,7 +15,6 @@ puts "Fetching existing links."
 existing_links = File.readlines("links.txt").map(&:chomp)
 puts "Found #{existing_links.length} existing links."
 
-# Filter out the ones that already exist
 new_links = links - existing_links
 
 if new_links.empty?
@@ -23,8 +22,8 @@ if new_links.empty?
   exit(0)
 end
 
-puts "There are #{new_links.length} new links:"
-links.each { |link| puts link }
+puts "New links found: #{new_links.length}."
+new_links.each { |link| puts link }
 
 puts "Writing new links to links.txt"
 File.open("links.txt", "a") do |file|
