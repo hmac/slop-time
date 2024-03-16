@@ -7,7 +7,7 @@ puts "Downloading #{events_url}"
 page = Net::HTTP.get(URI(events_url))
 
 puts "Finding event links"
-links = page.scan(href_pattern)
+links = page.scan(href_pattern).flatten
 
 puts "Found #{links.length} links."
 
@@ -36,3 +36,8 @@ new_links.each do |link|
   issue_body = "#{link}\n\n@hmac"
   `gh issue create --title "#{link}" --body "#{issue_body}"`
 end
+
+puts "Committing links.txt changes to repository"
+`git add links.txt`
+`git commit -m "[bot] update links.txt"`
+`git push`
