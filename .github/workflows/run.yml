@@ -1,5 +1,6 @@
 name: Run
 on:
+  workflow_dispatch:
   schedule:
     # run at 18 minutes past each hour
     - cron: '18 * * * *'
