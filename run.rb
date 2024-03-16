@@ -38,6 +38,8 @@ new_links.each do |link|
 end
 
 puts "Committing links.txt changes to repository"
+`git config user.email "harry@hmac.dev"`
+`git config user.name "Harry Maclean"`
 `git add links.txt`
 `git commit -m "[bot] update links.txt"`
 `git push`
