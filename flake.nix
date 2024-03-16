@@ -1,8 +1,8 @@
 {
-  description = "A very basic flake";
+  description = "Slop Times";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
   };
 
@@ -15,9 +15,7 @@
         {
           devShells.default = pkgs.mkShell
             {
-              buildInputs = with pkgs; [
-                ruby
-              ];
+              buildInputs = [ pkgs.ruby pkgs.git pkgs.gh ];
             };
         });
 }
