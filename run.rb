@@ -31,11 +31,11 @@ File.open("links.txt", "a") do |file|
   new_links.each { |l| file.puts(l) }
 end
 
-# puts "Creating issues for new links"
-# new_links.each do |link|
-#   issue_body = "#{link}\n\n@hmac"
-#   `gh issue create --title "#{link}" --body "#{issue_body}"`
-# end
+puts "Creating issues for new links"
+new_links.each do |link|
+  issue_body = "#{link}\n\n@hmac"
+  `gh issue create --title "#{link}" --body "#{issue_body}"`
+end
 
 puts "Committing links.txt changes to repository"
 `git config user.email "harry@hmac.dev"`
