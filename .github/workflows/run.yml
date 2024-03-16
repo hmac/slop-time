@@ -1,0 +1,12 @@
+name: Run
+on:
+  schedule:
+    # run at 18 minutes past each hour
+    - cron: '18 * * * *'
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run
+        run: bundle exec ruby run.rb
